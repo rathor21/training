@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class Validator {
 	
+	 boolean isValid;
+	
 	public static String getCourse(Scanner sc, String prompt)
 	{
 	    System.out.print(prompt);
@@ -11,6 +13,8 @@ public class Validator {
 	    return s;
 	}
 	
+
+
 	public static int getCredits(Scanner sc, String prompt,
 			int min, int max)
 			{
