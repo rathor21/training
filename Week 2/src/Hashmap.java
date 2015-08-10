@@ -1,9 +1,21 @@
 import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Hashmap {
 
 	public static void main(String[] args) {
+		
+		 //get a filename
+		String filename = (System.getProperty("user.dir") + File.separatorChar +"mybooks.txt");
+		
 		Scanner sc = new Scanner(System.in);
+		 PrintWriter writer;
+		
 		int number = 0;
 		boolean choice = false;
 		String stringValue = "";
@@ -34,7 +46,32 @@ public class Hashmap {
 				break;
 			}
 		} while (choice == true);
-
+		
+		 //write to a file
+		try {
+			writer = new PrintWriter(new File(filename));
+			 writer.println("this is a string");
+			 writer.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		 //read a file
+		 BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(filename));
+			String line = reader.readLine();
+			 System.out.println(line);
+			 reader.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
 	}
 
 	public static String convertString(int number) {
